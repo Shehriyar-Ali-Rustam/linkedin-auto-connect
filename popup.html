@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>LinkedIn Auto Connect</title>
+  </head>
+  <body>
+    <div class="top">
+      <div class="mark">🔗</div>
+      <div>
+        <h1>Auto Connect</h1>
+        <div class="sub">LinkedIn connection sender</div>
+      </div>
+      <div id="quota" class="quota">—</div>
+    </div>
+
+    <form id="form" class="wrap">
+      <div class="field">
+        <div class="label">Search / keywords <span class="req">required</span></div>
+        <input id="keywords" type="text" placeholder="e.g. AI Engineer, Recruiter, Founder" autocomplete="off" />
+        <span class="hint">What you'd type into LinkedIn people search.</span>
+      </div>
+
+      <div class="field">
+        <div class="label">Company <span class="opt">optional</span></div>
+        <input id="company" type="text" placeholder="e.g. Google" autocomplete="off" />
+      </div>
+
+      <div class="field">
+        <div class="label">
+          Message <span class="opt">optional</span>
+          <span id="noteCount" class="count">0/200</span>
+        </div>
+        <textarea id="note" rows="3" placeholder="Your connection note (leave empty to send with no note)"></textarea>
+      </div>
+
+      <div class="limitcard">
+        <div class="row">
+          <span>Daily limit</span>
+          <span id="limitOut" class="bignum">15</span>
+        </div>
+        <input id="dailyLimit" type="range" min="0" max="30" step="1" />
+        <span id="limitHint" class="hint"></span>
+      </div>
+
+      <div class="premium" id="premiumBtn">
+        <div class="premium-txt">
+          <strong>⭐ Go Premium</strong>
+          <span>Unlock up to 100 connections / day</span>
+        </div>
+        <div class="premium-cta">Upgrade</div>
+      </div>
+      <p id="premiumMsg" class="premium-msg" hidden>
+        🚀 Premium lifts your limit from 10 to <strong>100 connections/day</strong> for just <strong>$0.99/mo</strong>.<br />
+        To upgrade, contact <a href="mailto:info@orbitpk.com?subject=Premium%20upgrade%20-%20LinkedIn%20Auto%20Connect">info@orbitpk.com</a>.
+      </p>
+
+      <div class="field">
+        <div class="label">Gap between requests (seconds)</div>
+        <input id="gapSec" type="number" min="3" max="600" />
+        <span class="hint">Wait time after each invite. 5s is fine for small runs.</span>
+      </div>
+
+      <p id="error" class="error" hidden></p>
+
+      <div class="actions">
+        <button id="start" type="submit" class="start">Start sending</button>
+        <button id="stop" type="button" class="stop" hidden>Stop</button>
+      </div>
+    </form>
+
+    <div class="wrap activity">
+      <h2>Activity</h2>
+      <ul id="log"></ul>
+    </div>
+
+    <footer class="foot">
+      Support &amp; upgrades: <a href="mailto:info@orbitpk.com">info@orbitpk.com</a>
+    </footer>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
